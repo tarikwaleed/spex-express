@@ -6,6 +6,7 @@ dotenv.config();
 const cardInstalledController = async (req, res) => {
   const DAFTRA_API_KEY = process.env.DAFTRA_API_KEY;
   const DAFTRA_API_BASE_URL = `${process.env.DAFTRA_API_BASE_URL}/clients`;
+  const data = req.body.data
 
   const headers = {
     "APIKEY": DAFTRA_API_KEY,
@@ -19,9 +20,9 @@ const cardInstalledController = async (req, res) => {
       "client_number": "0000715",
       "staff_id": 1,
       "business_name": "John Smith Enterprises",
-      "first_name": "Tarik",
-      "last_name": "Waleed",
-      "email": "tarik.waleed44@example.com",
+      "first_name": data.cardholder_first_name,
+      "last_name": data.cardholder_last_name,
+      "email": data.cardholder_email,
       "password": "securepassword123",
       "address1": "123 Main St",
       "address2": "Apt 4B",
@@ -65,20 +66,11 @@ const cardInstalledController = async (req, res) => {
       message: req
     });
 
-    // const response = await axios.post(DAFTRA_API_BASE_URL, body, { headers });
-    // console.log(response.data);
-
-    // Uncomment to write response to a file
-    // const fs = require('fs');
-    // const path = require('path');
-    // const filePath = path.join(__dirname, '../resources/daftra', 'response.html');
-    // fs.mkdirSync(path.dirname(filePath), { recursive: true });
-    // fs.writeFileSync(filePath, response.data);
-
-    // res.status(201).json({ result: "ok" });
+    const response = await axios.post(DAFTRA_API_BASE_URL, body, { headers });
+    res.status(201).json({ result: "ok" });
   } catch (error) {
     console.error(error);
-    // res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Internal Server Error" });
   }
 }
 
