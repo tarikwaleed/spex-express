@@ -1,4 +1,4 @@
-FROM node:18-alpine as ts-environment
+FROM node:boron
 WORKDIR /usr/app
 
 COPY package.json ./
