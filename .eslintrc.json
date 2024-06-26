@@ -1,0 +1,17 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 2020,
+        "experimentalObjectRestSpread": true,
+        "sourceType": "module"
+    },
+    "extends": [
+        "eslint:recommended"
+    ],
+    "env": {
+        "node": true,
+        "jest": true
+    },
+    "rules":{
+        "indent": ["error", 2, { "SwitchCase": 1 }]
+    }
+}
