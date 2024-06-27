@@ -19,7 +19,7 @@ const cardInstalledController = async (req, res) => {
       "is_offline": true,
       "client_number": "0000715",
       "staff_id": 1,
-      "business_name": "John Smith Enterprises",
+      "business_name": `${data.cardholder_first_name} ${data.cardholder_last_name}`,
       "first_name": data.cardholder_first_name,
       "last_name": data.cardholder_last_name,
       "email": data.cardholder_email,
