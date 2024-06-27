@@ -21,7 +21,7 @@ const cardInstalledController = async (req, res) => {
       "staff_id": 1,
       "business_name": `${data.cardholder_first_name}`,
       "first_name": data.cardholder_first_name,
-      "last_name": data.cardholder_last_name,
+      "last_name": "test",
       "email": data.cardholder_email,
       "password": "securepassword123",
       "address1": "123 Main St",
